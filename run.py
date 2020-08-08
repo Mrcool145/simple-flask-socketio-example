@@ -35,10 +35,12 @@ def message_recieved(data):
     print(client_cmd)
     if client_cmd == "/login":
         emit('message_from_server', {'text': "Executing selenium Module with python" })
+    elif client_cmd == "/help":
+        emit('message_from_server', {'text': "This is just Beginning" })
     else:
         emit('message_from_server', {'text': "type /help to know More !" })
 
 # Actually Start the App
 if __name__ == '__main__':
     """ Run the app. """    
-    socketio.run(app, host="0.0.0.0", port=8000, debug=True)
+    socketio.run(app, host="0.0.0.0", port=5000)
