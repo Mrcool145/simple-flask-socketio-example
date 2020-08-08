@@ -32,7 +32,7 @@ def html(username):
 @socketio.on('send_message')   
 def message_recieved(data):
     print(data['text'])
-    emit('message_from_server', {'text':'Message recieved!'})
+    emit('message_from_server', {'text':data['text']})
 
 # Actually Start the App
 if __name__ == '__main__':
