@@ -31,8 +31,12 @@ def html(username):
 # Receive a message from the front end HTML
 @socketio.on('send_message')   
 def message_recieved(data):
-    print(data['text'])
-    emit('message_from_server', {'text':data['text']})
+    client_cmd = data['text']
+    print(client_cmd)
+    if client_cmd == "/login":
+        emit('message_from_server', {'text': "Executing selenium Module with python" })
+    else:
+        emit('message_from_server', {'text': "type /help to know More !" })
 
 # Actually Start the App
 if __name__ == '__main__':
