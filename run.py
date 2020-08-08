@@ -18,7 +18,8 @@ def message_recieved(data):
     client_cmd = data['text']
     print(client_cmd)
     if client_cmd == "/login":
-        emit('message_from_server', {'text': "Executing selenium Module with python" })
+        for i in range(5):
+            emit('message_from_server', {'text': f"Executing selenium Module with python run {i} " })
     elif client_cmd == "/help":
         emit('message_from_server', {'text': "This is just Beginning" })
     else:
