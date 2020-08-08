@@ -9,7 +9,7 @@ socketio = SocketIO(app, logger=True)
 
 # Display the HTML Page & pass in a username parameter
 @app.route('/')
-def html(username):
+def html():
     return render_template('index.html')
 
 # Receive a message from the front end HTML
