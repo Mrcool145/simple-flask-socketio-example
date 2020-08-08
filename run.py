@@ -6,27 +6,11 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'some super secret key!'
 socketio = SocketIO(app, logger=True)
 
-# Send HTML!
-@app.route('/')
-def root():    
-    return "Hello world!"
-
-# Returns a random number
-@app.route('/random')
-def random():  
-    from random import randint  
-    html = str(randint(1, 100))
-    return html
-
-# Prints the user id
-@app.route('/user/<id>')
-def user_id(id):
-    return str(id)
 
 # Display the HTML Page & pass in a username parameter
-@app.route('/html/<username>')
+@app.route('/')
 def html(username):
-    return render_template('index.html', username=username)
+    return render_template('index.html')
 
 # Receive a message from the front end HTML
 @socketio.on('send_message')   
